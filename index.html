@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      // Load COI service worker dynamically to skip Vite bundling
-      const script = document.createElement('script');
-      script.src = window.location.hostname === 'localhost' ? '/coi-serviceworker.js' : '/swipesplit/coi-serviceworker.js';
-      document.head.appendChild(script);
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -18,5 +12,6 @@
   <body class="bg-neutral-50">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+  </body>
   </body>
 </html>
