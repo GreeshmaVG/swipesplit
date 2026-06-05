@@ -261,11 +261,23 @@ export default function App() {
         </section>
 
         {!sabSupported && (
-          <div className="bg-amber-50 border-2 border-amber-100 p-6 rounded-3xl flex items-center gap-4 text-amber-800 animate-pulse">
-            <AlertCircle size={24} className="shrink-0" />
-            <div className="flex-1 text-sm">
-              <p className="font-black uppercase tracking-tight">Warning: Limited Browser Support</p>
-              <p className="font-medium opacity-80">Your browser doesn't support SharedArrayBuffer. Processing might be extremely slow or fail. Please use a modern desktop browser like Chrome or Firefox.</p>
+          <div className="bg-amber-50 border-2 border-amber-100 p-6 rounded-3xl flex flex-col gap-2 text-amber-800">
+            <div className="flex items-center gap-4">
+              <AlertCircle size={24} className="shrink-0" />
+              <p className="font-black uppercase tracking-tight">Security Headers Not Active</p>
+            </div>
+            <div className="ml-10 text-sm font-medium space-y-2">
+              <p>FFmpeg requires a "Secure Context" and specialized headers to run. This page should automatically reload once to enable them.</p>
+              <div className="flex gap-4 text-[10px] font-black uppercase opacity-60">
+                <span>Isolated: {window.crossOriginIsolated ? 'YES' : 'NO'}</span>
+                <span>SAB: {typeof SharedArrayBuffer !== 'undefined' ? 'YES' : 'NO'}</span>
+              </div>
+              <button 
+                onClick={() => window.location.reload()} 
+                className="bg-amber-100 hover:bg-amber-200 px-4 py-2 rounded-xl text-[10px] font-black"
+              >
+                Force Reload Page
+              </button>
             </div>
           </div>
         )}
